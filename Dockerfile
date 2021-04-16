@@ -5,17 +5,15 @@ RUN apt-get update && apt-get install -y sqlite && rm -rf /var/lib/apt/lists/*
 
 RUN mkdir -p /usr/src/app
 
-COPY . /usr/src/app
-
 WORKDIR /usr/src/app
+
+COPY . .
 
 # Bundle app source
 RUN npm ci --production
 
 # Apply all patches in app
-RUN npm run postinstall
-
-RUN cp instance.js.dist instance.js && cp conf.json.dist conf.json && sqlite3 bot.db < bot.sql
+RUN npm run postinstall && sqlite3 bot.db < bot.sql
 
 EXPOSE 8080
 
