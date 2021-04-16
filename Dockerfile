@@ -8,7 +8,7 @@ COPY . /usr/src/app
 WORKDIR /usr/src/app
 
 # Bundle app source
-RUN npm ci --production && npm cache clean --force
+RUN npm ci --production
 
 # Apply all patches in app
 RUN npm run postinstall
