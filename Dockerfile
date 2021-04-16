@@ -9,16 +9,8 @@ WORKDIR /usr/src/app
 
 COPY . .
 
-# Bundle app source
-RUN npm ci --production
-
-# Apply all patches in app
-RUN npm run postinstall && sqlite3 bot.db < bot.sql
+RUN yarn --pure-lockfile --prod && yarn postinstall && sqlite3 bot.db < bot.sql
 
 EXPOSE 8080
 
-#VOLUME /usr/src/app
-
-RUN ls
-
-CMD node index.js trade
+CMD node trade.js

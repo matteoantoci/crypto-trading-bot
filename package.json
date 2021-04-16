@@ -52,10 +52,8 @@
     "typescript": "^3.9.2",
     "winston": "^3.2.1",
     "ws": "^7.3.0",
+    "estrella": "^1.4.0",
     "zero-fill": "^2.2.3"
-  },
-  "engines": {
-    "node": "^8.3.0 || ^10"
   },
   "homepage": "https://github.com/coinbase/coinbase-pro-node",
   "keywords": [
@@ -81,7 +79,8 @@
     "url": "https://github.com/Haehnchen/crypto-trading-bot.git"
   },
   "scripts": {
-    "start": "node index.js trade",
+    "start": "node trade.js",
+    "build": "node build.js",
     "postinstall": "patch-package",
     "test": "mocha 'test/**/*.test.js'",
     "setup": "pm2 deploy ecosystem.config.js production setup",
