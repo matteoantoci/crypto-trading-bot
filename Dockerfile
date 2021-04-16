@@ -7,8 +7,9 @@ RUN mkdir -p /usr/src/app
 
 WORKDIR /usr/src/app
 
-COPY package.json /usr/src/app
-COPY yarn.lock /usr/src/app
+ENV PATH /usr/src/app/node_modules/.bin:$PATH
+
+COPY . /usr/src/app
 
 RUN yarn --pure-lockfile --prod && yarn postinstall
 
