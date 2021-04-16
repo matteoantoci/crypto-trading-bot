@@ -1,6 +1,6 @@
 {
   "name": "crypto-trading-bot",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "author": "Daniel Espendiller",
   "bugs": "https://github.com/Haehnchen/crypto-trading-bot/issues",
   "contributors": [
@@ -52,7 +52,6 @@
     "typescript": "^3.9.2",
     "winston": "^3.2.1",
     "ws": "^7.3.0",
-    "estrella": "^1.4.0",
     "zero-fill": "^2.2.3"
   },
   "homepage": "https://github.com/coinbase/coinbase-pro-node",
@@ -80,7 +79,6 @@
   },
   "scripts": {
     "start": "node trade.js",
-    "build": "node build.js",
     "postinstall": "patch-package",
     "test": "mocha 'test/**/*.test.js'",
     "setup": "pm2 deploy ecosystem.config.js production setup",

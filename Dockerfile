@@ -7,9 +7,14 @@ RUN mkdir -p /usr/src/app
 
 WORKDIR /usr/src/app
 
+COPY package.json .
+COPY yarn.lock .
+
+RUN yarn --pure-lockfile --prod && yarn postinstall
+
 COPY . .
 
-RUN yarn --pure-lockfile --prod && yarn postinstall && sqlite3 bot.db < bot.sql
+RUN sqlite3 bot.db < bot.sql
 
 EXPOSE 8080
 
